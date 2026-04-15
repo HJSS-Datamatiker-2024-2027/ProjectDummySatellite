@@ -1,0 +1,6 @@
+@ProjectDummySatellite.API_HostAddress = http://localhost:5064
+
+GET {{ProjectDummySatellite.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
