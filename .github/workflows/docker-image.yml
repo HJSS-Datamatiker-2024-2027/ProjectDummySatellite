@@ -1,0 +1,28 @@
+name: Build & Push Docker Images
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Log in to GitHub Container Registry
+      run: |
+        username=${{ github.actor }}
+        username=${username,,} # convert to lowercase
+        echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u $username --password-stdin
+    - name: Build and push ProjectDummySatellite image
+      run: |
+        username=${{ github.actor }}
+        username=${username,,} # convert to lowercase
+        docker build -t ghcr.io/$username/projectdummysatellite:latest -f ProjectDummySatellite/ProjectDummySatellite/Dockerfile ProjectDummySatellite
+        docker push ghcr.io/$username/cyclelog-api:develop
