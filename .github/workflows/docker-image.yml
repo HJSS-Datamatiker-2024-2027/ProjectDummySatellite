@@ -25,4 +25,4 @@ jobs:
         username=${{ github.actor }}
         username=${username,,} # convert to lowercase
         docker build -t ghcr.io/$username/projectdummysatellite:latest -f ProjectDummySatellite/ProjectDummySatellite/Dockerfile ProjectDummySatellite
-        docker push ghcr.io/$username/cyclelog-api:develop
+        docker push ghcr.io/$username/projectdummysatellite:latest
