@@ -29,12 +29,31 @@ namespace ProjectDummySatellite.API.Controllers
             }
         }
 
-        [HttpGet("one")]
+        [HttpGet("{extensionId}")]
         public ActionResult Get(Guid tenantId, int extensionId)
         {
             try
             {
                 return Ok(_dao.Get(tenantId, extensionId));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpDelete]
+        public ActionResult Delete(Guid tenantId, int extensionId)
+        {
+            try
+            {
+                Random rnd = new Random();
+                int randomInt = rnd.Next(0, 2);
+
+                bool success = randomInt == 1;
+
+                return Ok(success);
+                //return Ok(_dao.Delete(tenantId, extensionId));
             }
             catch (Exception ex)
             {
