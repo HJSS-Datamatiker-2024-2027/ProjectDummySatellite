@@ -22,6 +22,11 @@ namespace ProjectDummySatellite.API.DAL
             return _licenses.Where(license => license.TenantId == tenantId && license.ExtensionId == extensionId).First();
         }
 
+        public bool Delete(Guid tenantId, int extensionId)
+        {
+            throw new NotImplementedException();
+        }
+
         private void setup()
         {
             for (int i = 1; i < 6; i++)
