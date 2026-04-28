@@ -30,7 +30,7 @@ namespace ProjectDummySatellite.API.Controllers
         }
 
         [HttpGet("{extensionId}")]
-        public ActionResult Get(Guid tenantId, int extensionId)
+        public ActionResult Get(Guid tenantId, Guid extensionId)
         {
             try
             {
@@ -43,7 +43,7 @@ namespace ProjectDummySatellite.API.Controllers
         }
 
         [HttpDelete]
-        public ActionResult Delete(Guid tenantId, int extensionId)
+        public ActionResult Delete(Guid tenantId, Guid extensionId)
         {
             try
             {
