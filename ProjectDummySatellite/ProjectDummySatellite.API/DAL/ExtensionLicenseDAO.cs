@@ -17,12 +17,12 @@ namespace ProjectDummySatellite.API.DAL
             return _licenses.Where(license => license.TenantId == tenantId);
         }
 
-        public ExtensionLicense Get(Guid tenantId, int extensionId)
+        public ExtensionLicense Get(Guid tenantId, Guid extensionId)
         {
-            return _licenses.Where(license => license.TenantId == tenantId && license.ExtensionId == extensionId).First();
+            return _licenses.Where(license => license.TenantId == tenantId && license.ExtensionId.Equals(extensionId)).First();
         }
 
-        public bool Delete(Guid tenantId, int extensionId)
+        public bool Delete(Guid tenantId, Guid extensionId)
         {
             throw new NotImplementedException();
         }
@@ -36,7 +36,7 @@ namespace ProjectDummySatellite.API.DAL
                     Id = i,
                     TenantId = Guid.Parse("1b81cb10-2baf-4ee4-a63e-f1603c774587"),
                     CustomerName = "Customer 2",
-                    ExtensionId = i,
+                    ExtensionId = Guid.Parse("1b81cb10-2baf-4ee4-a63e-f1603c774587"),
                     DateCreated = DateTime.Now,
                     ExpirationDate = DateTime.Now.AddDays(1),
                     Status = "Active"
