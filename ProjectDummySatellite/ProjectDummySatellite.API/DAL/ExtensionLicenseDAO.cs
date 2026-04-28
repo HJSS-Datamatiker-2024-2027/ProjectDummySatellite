@@ -36,7 +36,7 @@ namespace ProjectDummySatellite.API.DAL
                     Id = i,
                     TenantId = Guid.Parse("1b81cb10-2baf-4ee4-a63e-f1603c774587"),
                     CustomerName = "Customer 2",
-                    ExtensionId = Guid.Parse("1b81cb10-2baf-4ee4-a63e-f1603c774587"),
+                    ExtensionId = Guid.Parse($"1b81cb10-2baf-4ee4-a63e-f1603c77458{i}"),
                     DateCreated = DateTime.Now,
                     ExpirationDate = DateTime.Now.AddDays(1),
                     Status = "Active"
